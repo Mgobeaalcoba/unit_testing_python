@@ -8,6 +8,9 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.13"
 ipdb = "^0.13.13"
+coverage = "^7.6.5"
+pytest = "^8.3.3"
+pytest-cov = "^6.0.0"
 
 
 [build-system]
