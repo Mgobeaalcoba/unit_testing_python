@@ -11,6 +11,7 @@ ipdb = "^0.13.13"
 coverage = "^7.6.5"
 pytest = "^8.3.3"
 pytest-cov = "^6.0.0"
+requests = "^2.32.3"
 
 
 [build-system]
