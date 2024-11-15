@@ -147,3 +147,5 @@ class AllAssertsTests(unittest.TestCase):
     def tearDown(self):
         if self.account.get_log_file():
             os.remove(self.account.get_log_file())
+        if self.other_account.get_log_file():
+            os.remove(self.other_account.get_log_file())

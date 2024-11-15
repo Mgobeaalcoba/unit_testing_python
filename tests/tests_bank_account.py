@@ -1,7 +1,9 @@
 import unittest
 import os
 from unittest import mock
+from unittest.mock import patch
 from unit_testing_python.bank_account import BankAccount
+from unit_testing_python.exceptions import InsufficientFundsError, WithdrawalTimeRestrictionError
 
 
 class BackAccountTests(unittest.TestCase):
@@ -20,32 +22,52 @@ class BackAccountTests(unittest.TestCase):
         new_balance = self.account.deposit(1000)
         self.assertEqual(new_balance, 3000)
 
-    def test_withdraw(self):
+    @patch('unit_testing_python.bank_account.datetime')
+    def test_withdraw(self, mock_datetime):
+        mock_datetime.now.return_value.hour = 10
         new_balance = self.account.withdraw(500)
         self.assertEqual(new_balance, 1500)
 
-    def test_negative_deposit(self):
+    @patch('unit_testing_python.bank_account.datetime')
+    def test_negative_deposit(self, mock_datetime):
+        mock_datetime.now.return_value.hour = 10
         with self.assertRaises(ValueError):
             self.account.deposit(-1000)
 
-    def test_negative_withdraw(self):
-        with self.assertRaises(ValueError):
+    @patch('unit_testing_python.bank_account.datetime')
+    def test_negative_withdraw(self, mock_datetime):
+        mock_datetime.now.return_value.hour = 10
+        with self.assertRaises(InsufficientFundsError):
             self.account.withdraw(-1000)
 
-    def test_over_withdraw(self):
-        with self.assertRaises(ValueError):
+    @patch('unit_testing_python.bank_account.datetime')
+    def test_withdraw_in_unavailable_hours(self, mock_datetime):
+        mock_datetime.now.return_value.hour = 23
+        with self.assertRaises(WithdrawalTimeRestrictionError):
+            self.account.withdraw(500)
+
+    @patch('unit_testing_python.bank_account.datetime')
+    def test_over_withdraw(self, mock_datetime):
+        mock_datetime.now.return_value.hour = 10
+        with self.assertRaises(InsufficientFundsError):
             self.account.withdraw(5000)
 
-    def test_transfer(self):
+    @patch('unit_testing_python.bank_account.datetime')
+    def test_transfer(self, mock_datetime):
+        mock_datetime.now.return_value.hour = 10
         new_balance = self.account.transfer(500, self.other_account)
         self.assertEqual(new_balance, 1500)
         self.assertEqual(self.other_account.get_balance(), 1500)
 
-    def test_negative_transfer(self):
+    @patch('unit_testing_python.bank_account.datetime')
+    def test_negative_transfer(self, mock_datetime):
+        mock_datetime.now.return_value.hour = 10
         with self.assertRaises(ValueError):
             self.account.transfer(-500, self.other_account)
 
-    def test_over_transfer(self):
+    @patch('unit_testing_python.bank_account.datetime')
+    def test_over_transfer(self, mock_datetime):
+        mock_datetime.now.return_value.hour = 10
         with self.assertRaises(ValueError):
             self.account.transfer(5000, self.other_account)
 
@@ -66,7 +88,8 @@ class BackAccountTests(unittest.TestCase):
         self.assertEqual(new_balance, 3000)
         self.assertTrue(os.path.exists('test_log.txt'))
 
-    def test_log_file_is_created_and_messages_are_logged(self):
+    @patch('unit_testing_python.bank_account.datetime')
+    def test_log_file_is_created_and_messages_are_logged(self, mock_datetime):
         """
         This test case tests if the log file is created and messages are logged in the file.
         Also, it tests the number and the content of messages logged in the file.
@@ -76,6 +99,7 @@ class BackAccountTests(unittest.TestCase):
 
         The log file should be created and messages should be logged in the file.
         """
+        mock_datetime.now.return_value.hour = 10
         self.account.deposit(1000)
         self.account.withdraw(500)
         self.account.transfer(700, self.other_account)

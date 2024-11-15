@@ -1,4 +1,6 @@
 import random
+from datetime import datetime
+from .exceptions import InsufficientFundsError, WithdrawalTimeRestrictionError
 
 
 class BankAccount:
@@ -28,12 +30,16 @@ class BankAccount:
             raise ValueError("Amount must be greater than 0")
 
     def withdraw(self, amount):
-        if 0 < amount <= self._balance:
-            self._balance -= amount
-            self._log_transaction(f"Withdrew: {amount}")
-            return self.get_balance()
+        now = datetime.now()
+        if now.hour < 8 or now.hour > 22:
+            raise WithdrawalTimeRestrictionError("You can only withdraw between 8am and 10pm")
         else:
-            raise ValueError("Amount must be greater than 0 and less than or equal to balance")
+            if 0 < amount <= self._balance:
+                self._balance -= amount
+                self._log_transaction(f"Withdrew: {amount}")
+                return self.get_balance()
+            else:
+                raise InsufficientFundsError("Amount must be greater than 0 and less than or equal to balance")
 
     def transfer(self, amount, account):
         if 0 < amount <= self._balance:
