@@ -15,3 +15,12 @@
 - **Testing de Sistema:** Incorporé una referencia a requisitos no funcionales (rendimiento, seguridad, etc.) que son parte clave de esta fase de pruebas.
 - **Testing de Aceptación:** Normalmente lo realiza el cliente o el equipo de QA en su nombre. Suele dividirse en dos subtipos: pruebas de aceptación del usuario (UAT) y pruebas de aceptación operativas.
 - **Testing de Regresión:** Añadí un comentario sobre la automatización, que es muy relevante para este tipo de testing, especialmente en proyectos grandes.
+
+### Assert Nativo en Python vs Unittest Assertions:
+
+- **Assert Nativo en Python:** Es una forma sencilla de verificar condiciones, pero no proporciona mensajes de error detallados.
+- **Unittest Assertions:** Proporciona mensajes de error más descriptivos y permite verificar múltiples condiciones en un solo test.
+- **Ejemplos**:
+  - **Assert Nativo en Python:** `assert a == b`
+  - **Unittest Assertions:** `self.assertEqual(a, b)`
+  - **Nota:** `unittest` es una librería estándar de Python para escribir tests.

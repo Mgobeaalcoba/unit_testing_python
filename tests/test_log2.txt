@@ -2,66 +2,56 @@ Account created with balance: 1000
 Account created with balance: 1000
 Account created with balance: 1000
 Account created with balance: 1000
-Deposited: 500
 Account created with balance: 1000
 Account created with balance: 1000
 Account created with balance: 1000
 Account created with balance: 1000
 Account created with balance: 1000
 Account created with balance: 1000
-Deposited: 500
 Account created with balance: 1000
 Account created with balance: 1000
 Account created with balance: 1000
 Account created with balance: 1000
 Account created with balance: 1000
-Deposited: 700
 Account created with balance: 1000
 Account created with balance: 1000
 Account created with balance: 1000
 Account created with balance: 1000
 Account created with balance: 1000
 Account created with balance: 1000
-Deposited: 500
 Account created with balance: 1000
 Account created with balance: 1000
 Account created with balance: 1000
 Account created with balance: 1000
 Account created with balance: 1000
-Deposited: 700
 Account created with balance: 1000
 Account created with balance: 1000
 Account created with balance: 1000
 Account created with balance: 1000
 Account created with balance: 1000
 Account created with balance: 1000
-Deposited: 500
 Account created with balance: 1000
 Account created with balance: 1000
 Account created with balance: 1000
 Account created with balance: 1000
 Account created with balance: 1000
-Deposited: 700
 Account created with balance: 1000
 Account created with balance: 1000
 Account created with balance: 1000
 Account created with balance: 1000
 Account created with balance: 1000
 Account created with balance: 1000
-Deposited: 500
 Account created with balance: 1000
 Account created with balance: 1000
 Account created with balance: 1000
 Account created with balance: 1000
 Account created with balance: 1000
-Deposited: 700
 Account created with balance: 1000
 Account created with balance: 1000
 Account created with balance: 1000
 Account created with balance: 1000
 Account created with balance: 1000
 Account created with balance: 1000
-Deposited: 500
 Account created with balance: 1000
 Account created with balance: 1000
 Account created with balance: 1000
@@ -78,30 +68,4 @@ Account created with balance: 1000
 Account created with balance: 1000
 Account created with balance: 1000
 Account created with balance: 1000
-Account created with balance: 1000
-Account created with balance: 1000
-Account created with balance: 1000
-Account created with balance: 1000
-Account created with balance: 1000
-Account created with balance: 1000
-Account created with balance: 1000
-Account created with balance: 1000
-Account created with balance: 1000
-Account created with balance: 1000
-Account created with balance: 1000
-Account created with balance: 1000
-Account created with balance: 1000
-Account created with balance: 1000
-Account created with balance: 1000
-Account created with balance: 1000
-Account created with balance: 1000
-Account created with balance: 1000
-Deposited: 700
-Account created with balance: 1000
-Account created with balance: 1000
-Account created with balance: 1000
-Account created with balance: 1000
-Account created with balance: 1000
-Account created with balance: 1000
-Deposited: 500
 Account created with balance: 1000
