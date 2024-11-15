@@ -18,8 +18,6 @@ class BankAccount:
                 file_name = input("Enter the file name: ")
                 with open(file_name, 'a') as file:
                     file.write(message + '\n')
-            else:
-                print("No log file created")
 
     def deposit(self, amount):
         if amount > 0:

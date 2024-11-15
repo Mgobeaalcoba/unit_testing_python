@@ -110,3 +110,6 @@ class BackAccountTests(unittest.TestCase):
         if self.account.get_log_file():
             if os.path.exists(self.account.get_log_file()):
                 os.remove(self.account.get_log_file())
+        if self.other_account.get_log_file():
+            if os.path.exists(self.other_account.get_log_file()):
+                os.remove(self.other_account.get_log_file())

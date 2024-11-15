@@ -24,3 +24,8 @@
   - **Assert Nativo en Python:** `assert a == b`
   - **Unittest Assertions:** `self.assertEqual(a, b)`
   - **Nota:** `unittest` es una librería estándar de Python para escribir tests.
+
+### Uso de unittest.skip() y unittest.skipIf():
+
+- **unittest.skip():** Se utiliza para indicar que un test debe ser omitido.
+- **unittest.skipIf():** Permite omitir un test si se cumple una condición específica.
