@@ -29,3 +29,100 @@
 
 - **unittest.skip():** Se utiliza para indicar que un test debe ser omitido.
 - **unittest.skipIf():** Permite omitir un test si se cumple una condición específica.
+
+### Uso de subTest() en unittest:
+
+- **subTest():** Permite ejecutar subtests dentro de un test principal, lo que facilita la identificación de múltiples fallos en un solo test.
+  - **Ejemplo**:
+    ```python
+    with self.subTest(i=i):
+        self.assertEqual(i % 2, 0)
+    ```
+    
+### Mocking en Python:
+
+- **Mocking:** Es una técnica que permite simular el comportamiento de objetos reales en un entorno controlado.
+- **Objetivo:** Simplificar la escritura de tests y reducir la dependencia de componentes externos.
+- 
+- **Librerías populares:** `unittest.mock`, `pytest-mock`, `mockito`, entre otras.
+  - **Ejemplo Mock**:
+    ```python
+    from unittest.mock import Mock
+    mock = Mock()
+    mock.some_method.return_value = 42
+    assert mock.some_method() == 42
+    ``` 
+  - **Ejemplo Patch como Context Manager:**
+    ```python
+    from unittest.mock import patch
+    with patch('module.function') as mock_function:
+        mock_function.return_value = 42
+        assert module.function() == 42
+    ```
+  - **Ejemplo Patch como Decorador:**
+    ```python
+    from unittest.mock import patch
+    @patch('module.function')
+    def test_function(mock_function):
+        mock_function.return_value = 42
+        assert module.function() == 42
+    ```
+- **Nota:** `unittest.mock` es parte de la librería estándar de Python a partir de la versión 3.3.
+- **Referencia:** [Documentación oficial de unittest.mock](https://docs.python.org/3/library/unittest.mock.html)
+
+### Testing con Doctest en comentarios usando sesiones interactivas de Python:
+
+- **Doctest:** Permite incluir ejemplos de uso y resultados esperados en los comentarios del código.
+- **Ventajas:** Facilita la documentación y verificación de ejemplos en el código.
+- **Ejemplo**:
+  ```python
+  def add(a, b):
+      """
+      Suma dos números.
+
+      >>> add(2, 3)
+      5
+      >>> add(-1, 1)
+      0
+      """
+      return a + b
+  ```
+- **Ejemplo con ZeroDivisionError**:
+  ```python
+  def divide(a, b):
+      """
+      Divide dos números.
+
+      >>> divide(10, 2)
+      5.0
+      >>> divide(5, 0)
+      Traceback (most recent call last):
+      ZeroDivisionError: division by zero
+      """
+      return a / b
+  ```
+- **Ejecución:** Los tests de doctest se pueden ejecutar con el módulo `doctest` de Python o con el comando `python -m doctest -v file.py`.
+  - **Ejemplo de Ejecución:**
+    ```
+    Trying:
+        add(2, 3)
+    Expecting:
+        5
+    ok
+    Trying:
+        add(-1, 1)
+    Expecting:
+        0
+    ok
+    ```
+    - **Ejemplo de comandos de ejecución:**
+      ```bash
+      python -m doctest -v file.py
+      python -m doctest -v file.py -o ELLIPSIS
+      ```
+- **Nota:** Los tests de doctest se ejecutan por defecto en modo "ELLIPSIS", lo que permite ignorar diferencias en la salida que no afectan el resultado.
+- **Referencia:** [Documentación oficial de doctest](https://docs.python.org/3/library/doctest.html)
+
+
+
+

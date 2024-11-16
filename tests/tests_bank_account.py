@@ -113,6 +113,52 @@ class BackAccountTests(unittest.TestCase):
         self.assertEqual(log_messages[4], f'Transferred: 700 to account: {self.other_account.get_account_number()}\n')
         self.assertEqual(len_log_messages, 5)
 
+    def test_deposit_various_amounts_two_lists(self):
+        """
+        This test case tests the deposit method with various amounts.
+        It tests the deposit method with amounts 0, 1, 1000, and 10000.
+
+        For this, we use the subTest method to run the same test with different data.
+        This example is with two lists, one with the amounts and the other with the expected balances.
+
+        The deposit method should return the new balance.
+        """
+        amounts = [0, 1, 1000, 10000]
+        expected_balances = [2000, 2001, 3001, 13001]
+        for amount, expected_balance in zip(amounts, expected_balances):
+            with self.subTest(amount=amount, expected_balance=expected_balance):
+                if amount == 0:
+                    with self.assertRaises(ValueError):
+                        new_balance = self.account.deposit(amount)
+                        self.assertIsNone(new_balance)
+                else:
+                    new_balance = self.account.deposit(amount)
+                    self.assertEqual(new_balance, expected_balance)
+
+    def test_deposit_various_amount_list_of_dicts(self):
+        """
+        This test case tests the deposit method with various amounts.
+        It tests the deposit method with amounts 0, 1, 1000, and 10000.
+
+        For this, we use the subTest method to run the same test with different data.
+        This example is with a list of dictionaries, where each dictionary has the amount and the expected balance.
+
+        The deposit method should return the new balance.
+        """
+        data = [{'amount': 0, 'expected_balance': 2000},
+                {'amount': 1, 'expected_balance': 2001},
+                {'amount': 1000, 'expected_balance': 3001},
+                {'amount': 10000, 'expected_balance': 13001}]
+        for item in data:
+            with self.subTest(amount=item['amount'], expected_balance=item['expected_balance']):
+                if item['amount'] == 0:
+                    with self.assertRaises(ValueError):
+                        new_balance = self.account.deposit(item['amount'])
+                        self.assertIsNone(new_balance)
+                else:
+                    new_balance = self.account.deposit(item['amount'])
+                    self.assertEqual(new_balance, item['expected_balance'])
+
     @staticmethod
     def _count_file_lines(file_name):
         with open(file_name, 'r') as file:
