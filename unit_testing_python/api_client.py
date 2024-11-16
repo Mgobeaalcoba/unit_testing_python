@@ -8,7 +8,10 @@ def get_location(ip):
 
 
 if __name__ == '__main__':
-    ip = input('Enter the IP address: ') or '8.8.8.8'
-    ip_data = get_location(ip)
-    print(ip_data)
-
+    ip = input("Enter an IP address: ") or '8.8.8.8'
+    ip_address, country, region, city, zip_code = get_location(ip)
+    print(f'IP Address: {ip_address}')
+    print(f'Country: {country}')
+    print(f'Region: {region}')
+    print(f'City: {city}')
+    print(f'Zip Code: {zip_code}')

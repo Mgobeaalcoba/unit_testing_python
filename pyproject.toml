@@ -12,7 +12,18 @@ coverage = "^7.6.5"
 pytest = "^8.3.3"
 pytest-cov = "^6.0.0"
 requests = "^2.32.3"
+faker = "^33.0.0"
 
+[tool.coverage.run]
+source = ["unit_testing_python"]
+omit = [
+    "tests/*"  # Excluye la carpeta de tests
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "if __name__ == .__main__.:"
+]
 
 [build-system]
 requires = ["poetry-core"]

@@ -20,3 +20,8 @@ class CalculatorTests(unittest.TestCase):
         self.assertEqual(Calculator.divide(1, -1), -1)
         self.assertEqual(Calculator.divide(1, 0), 0)
 
+    def test_unsafe_divide(self):
+        self.assertEqual(Calculator.unsafe_divide(1, 1), 1)
+        self.assertEqual(Calculator.unsafe_divide(1, -1), -1)
+        with self.assertRaises(ZeroDivisionError):
+            Calculator.unsafe_divide(1, 0)
