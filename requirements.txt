@@ -27,6 +27,5 @@ six==1.16.0
 stack-data==0.6.3
 traitlets==5.14.3
 typing_extensions==4.12.2
--e git+https://github.com/Mgobeaalcoba/unit_testing_python.git@93eb16be3769c62169193a21c6915744b706c7ed#egg=unit_testing_python
 urllib3==2.2.3
 wcwidth==0.2.13
