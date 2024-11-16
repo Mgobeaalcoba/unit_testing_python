@@ -123,6 +123,11 @@
 - **Nota:** Los tests de doctest se ejecutan por defecto en modo "ELLIPSIS", lo que permite ignorar diferencias en la salida que no afectan el resultado.
 - **Referencia:** [Documentación oficial de doctest](https://docs.python.org/3/library/doctest.html)
 
+### Workflow de Testing en Python:
 
-
-
+- **Pasos:**
+  1. **Planificación:** Definir qué se va a testear y cómo.
+  2. **Implementación:** Escribir los tests y el código a testear.
+  3. **Ejecución:** Correr los tests y verificar los resultados.
+  4. **Reporte:** Analizar los resultados y corregir los errores.
+  5. **Automatización:** Integrar los tests en un flujo de CI/CD.
