@@ -131,3 +131,28 @@
   3. **Ejecución:** Correr los tests y verificar los resultados.
   4. **Reporte:** Analizar los resultados y corregir los errores.
   5. **Automatización:** Integrar los tests en un flujo de CI/CD.
+
+### Testing con Pytest
+
+- **Pytest:** Es una librería de testing popular en Python que permite escribir tests de forma sencilla y eficiente.
+- **Ventajas:** Mayor legibilidad, menos código boilerplate y soporte para tests parametrizados.
+  - **Ejemplo de Test con Pytest:**
+    ```python
+    def test_add():
+        assert add(2, 3) == 5
+        assert add(-1, 1) == 0
+    ```
+- **Ejecución:** Los tests de pytest se pueden ejecutar con el comando `pytest` en la terminal.
+- **Referencia:** [Documentación oficial de Pytest](https://docs.pytest.org/en/stable/)
+- **Instalación:** Pytest se puede instalar con `pip install pytest`. o `pip install pytest-cov` para obtener información de cobertura de código.
+- **Instalación Poetry:** Pytest se puede instalar con `poetry add pytest`. o `poetry add pytest-cov` para obtener información de cobertura de código.
+- **Ejemplo de ejecución con Pytest:** `pytest -v test_file.py`
+
+### Cobertura de Código con Pytest
+
+- **Cobertura de Código:** Mide la cantidad de código que es ejecutada por los tests.
+- **Pytest-cov:** Es una extensión de Pytest que permite obtener información detallada sobre la cobertura de código.
+- **Ejecución:** Los tests con cobertura se pueden ejecutar con el comando `pytest --cov=module` en la terminal.
+- **Reporte HTML:** Se puede generar un reporte HTML detallado con el comando `pytest --cov=module --cov-report=html`.
+- **Referencia:** [Documentación oficial de pytest-cov](https://pytest-cov.readthedocs.io/en/latest/)
+- **Ejemplo de ejecución con Cobertura:** `pytest --cov=module -v test_file.py`
